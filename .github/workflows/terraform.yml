@@ -12,6 +12,7 @@ permissions:
 jobs:
   terraform:
     runs-on: ubuntu-latest
+    environment: production
 
     steps:
       - name: Checkout Repository
@@ -22,7 +23,6 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: us-east-1
-          role-session-name: GitHubActionsSession
 
       - name: Verify AWS Login
         run: aws sts get-caller-identity
@@ -41,4 +41,3 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
-
