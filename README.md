@@ -1,1 +1,0 @@
-Bootstrap first, then infrastructure.
